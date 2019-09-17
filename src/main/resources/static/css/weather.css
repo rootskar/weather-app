@@ -1,0 +1,162 @@
+@import url("../css/google-font.css");
+@import url("../css/icon-font.min.css");
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #112232;
+}
+
+.weather-card {
+    margin: 70px auto;
+    height: 850px;
+    width: 600px;
+    background: #fff;
+    box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+.weather-card .top {
+    position: relative;
+    height: 570px;
+    width: 100%;
+    overflow: hidden;
+    background: url("../img/sun.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+.weather-card .top .wrapper {
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+.weather-card .top .wrapper .selection {
+    height: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+.weather-card .top .wrapper .selection .time-select {
+    margin-left: 30px;
+    float: left;
+    background: transparent;
+}
+.weather-card .top .wrapper .selection .dropdown-menu {
+    min-width:5px;
+}
+.weather-card .top .wrapper .selection .loc-select {
+    margin-right: 30px;
+    float: right;
+    background: transparent;
+}
+.weather-card .top .wrapper .heading {
+    margin-top: 40px;
+    font-size: 35px;
+    font-weight: 400;
+    color: #fff;
+}
+.weather-card .top .wrapper .location {
+    margin-top: 20px;
+    font-size: 21px;
+    font-weight: 400;
+    color: #fff;
+}
+.weather-card .top .wrapper .temp {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.weather-card .top .wrapper .temp .temp-t {
+    font-size: 16px;
+    font-weight: 600;
+}
+.weather-card .top .wrapper .temp .temp-type {
+    font-size: 85px;
+}
+.weather-card .top .wrapper .temp .temp-value {
+    display: inline-block;
+    font-size: 85px;
+    font-weight: 600;
+    color: #fff;
+}
+.weather-card .top .wrapper .temp .deg {
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.weather-card .top:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.weather-card .bottom {
+    padding: 0 30px;
+    background: #fff;
+}
+.weather-card .bottom .wrapper .forecast {
+    overflow: hidden;
+    margin: 0;
+    font-size: 0;
+    padding: 0;
+    padding-top: 20px;
+    max-height: 115px;
+}
+.weather-card .bottom .wrapper .forecast li {
+    display: grid;
+    grid-template-columns: 27% 50% 23%;
+    grid-gap: 2px;
+    font-size: 25px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1em;
+    margin-bottom: 15px;
+}
+.weather-card .bottom .wrapper .forecast li .date {
+    display: inline-block;
+}
+.weather-card .bottom .wrapper .forecast li .phenomenon {
+    display: inline-block;
+    font-size: 20px;
+    text-align: left;
+    vertical-align: text-top;
+}
+.weather-card .bottom .wrapper .forecast li .condition {
+    display: inline-block;
+    float: right;
+    font-size: 25px;
+    vertical-align: top;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 2px;
+    vertical-align: top;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp .deg {
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 3px;
+    vertical-align: top;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp .temp-type {
+    font-size: 20px;
+}
+
+.weather-card.rain .top {
+    background: url("../img/rain.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.weather-card.cloud .top {
+    background: url("../img/cloud.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

@@ -1,0 +1,109 @@
+<div class="container" ng-controller="WeatherCtrl as $ctrl">
+    <div class="row">
+        <div class="col">
+
+            <div class="alert alert-danger" ng-if="$ctrl.errorMessage" role="alert">
+                {{$ctrl.errorMessage}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                        ng-click="$ctrl.clearError()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="weather-card" ng-if="$ctrl.forecastLoaded" ng-class="$ctrl.weatherType">
+                <div class="top">
+                    <div class="wrapper">
+                        <div class="selection">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle time-select"
+                                        type="button"
+                                        id="timeSelection"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                    {{$ctrl.selectedTime}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="timeSelection">
+                                    <button class="dropdown-item"
+                                            type="button"
+                                            ng-click="$ctrl.setTime(time)"
+                                            ng-repeat="time in $ctrl.timeOptions">
+                                        {{time}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle loc-select"
+                                        type="button"
+                                        id="locationSelection"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                    {{$ctrl.selectedLocation}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="locationSelection">
+                                    <button class="dropdown-item"
+                                            type="button"
+                                            ng-click="$ctrl.setLocation(location)"
+                                            ng-repeat="location in $ctrl.locationOptions">
+                                        {{location}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="heading" data-toggle="tooltip"
+                            data-placement="top" title="{{$ctrl.selectedForecast.text}}">
+                            {{$ctrl.selectedForecast.phenomenon}}
+                        </h1>
+                        <div ng-if="!$ctrl.isCity()">
+                            <p class="temp">
+                                <span class="temp-t">min</span>
+                                <span class="temp-value">{{$ctrl.selectedForecast.tempmin}}</span>
+                                <span class="deg">0</span>
+                                <span class="temp-type">C</span>
+                            </p>
+                            <p class="temp">
+                                <span class="temp-t">max</span>
+                                <span class="temp-value">{{$ctrl.selectedForecast.tempmax}}</span>
+                                <span class="deg">0</span>
+                                <span class="temp-type">C</span>
+                            </p>
+                        </div>
+                        <div ng-if="$ctrl.isCity()">
+                            <p class="temp">
+                                <span class="temp-value">{{$ctrl.selectedForecast.temp}}</span>
+                                <span class="deg">0</span>
+                                <span class="temp-type">C</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <div class="wrapper">
+                        <ul class="forecast" ng-repeat="forecast in $ctrl.forecasts">
+                            <li>
+                                <span class="date">{{forecast.date}}</span>
+                                <span class="phenomenon" ng-if="$ctrl.selectedTime === 'Day'">
+                                    {{forecast.day.phenomenon}}
+                                </span>
+                                <span class="phenomenon" ng-if="$ctrl.selectedTime === 'Night'">
+                                    {{forecast.night.phenomenon}}
+                                </span>
+                                <span class="lnr condition" ng-class="$ctrl.getWeatherIcon(forecast)">
+                                        <span ng-if="$ctrl.selectedTime === 'Day'" class="temp">
+                                            {{forecast.day.tempmin}}...{{forecast.day.tempmax}}<span class="deg">0</span><span class="temp-type">C</span>
+                                        </span>
+                                        <span ng-if="$ctrl.selectedTime === 'Night'" class="temp">
+                                            {{forecast.night.tempmin}}...{{forecast.night.tempmax}}<span class="deg">0</span><span class="temp-type">C</span>
+                                        </span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
