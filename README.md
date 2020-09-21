@@ -1,4 +1,8 @@
-# Simple weather forecast app built in project built in Java 11 and AngularJS
+# Simple weather forecast app
+
+Built with Java 11, AngularJS and Maven.
+
+Using data from http://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php
 
 ## To Build: 
 
