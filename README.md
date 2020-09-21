@@ -1,4 +1,4 @@
-Simple weather forecast app built in project built in Java 11 and AngularJS
+# Simple weather forecast app built in project built in Java 11 and AngularJS
 
 ## To Build: 
 
